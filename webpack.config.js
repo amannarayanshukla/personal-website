@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,6 +11,7 @@ export default {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        clean: true,
     },
     module: {
         rules: [
@@ -23,6 +25,10 @@ export default {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp|mp4|webm)$/i,
+                type: 'asset/resource'
             }
         ]
     },
@@ -40,11 +46,15 @@ export default {
             '@styles': path.resolve(__dirname, 'src/styles'),
             '@assets': path.resolve(__dirname, 'src/assets'),
         }
-
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public/media', to: 'media', noErrorOnMissing: true }
+            ]
         })
     ],
     mode: 'development'
