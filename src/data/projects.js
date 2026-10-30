@@ -1,0 +1,62 @@
+export const projectsData = [
+    {
+        id: 1,
+        title: "Satorie: Autonomous Multi-Agent Code Pipeline & Execution Engine",
+        tags: ["AGENTIC-AI", "LLMOPS", "DISTRIBUTED-STATE", "FASTAPI"],
+        category: "SYSTEMS",
+        problem: "Off-the-shelf LLM agent frameworks suffer from context drift, non-deterministic state hallucination, uncontrolled token spend, and lack of auditability for code generation.",
+        solution: "Architected a deterministic multi-agent pipeline with role-specialized seats (Planner → GPT critique → Operator Approval Gate → Implementer → Reviewer). Decoupled runtime state from prompt context into a versioned filesystem ledger (.agent/state.json), with dynamic model seat tiering and human-in-the-loop control.",
+        impact: "Executed 179+ autonomous production runs across 76 sessions; 100% pauseable/auditable state; cut high-reasoning token spend by ~65% via dynamic seat tiering.",
+        stack: ["Python", "AsyncIO", "Anthropic Claude", "OpenAI GPT-4", "FastAPI", "Subprocess IPC", "Tailscale"],
+        demoMedia: "/media/agents-orchestration-demo.mp4",
+        demoGif: "/media/agents-orchestration-demo.gif",
+        demoPoster: "/media/agents-dash.png",
+        liveUrl: "https://app.satorie.app",
+        githubUrl: "https://github.com/amannarayanshukla"
+    },
+    {
+        id: 2,
+        title: "Satorie Mission Control: Distributed Telemetry & Operator Control Plane",
+        tags: ["OBSERVABILITY", "CONTROL-PLANE", "NEXT.JS", "DISTRIBUTED-SYSTEMS"],
+        category: "SYSTEMS",
+        problem: "Distributed AI pipelines (ingestion, graph curation, model runs) lacked unified runtime observability, leading to 2am triage blind spots and unmonitored per-turn LLM inference latency/costs.",
+        solution: "Engineered an operator control plane with an invariant-backed 3-depth FlowMap (System Health → Stage Progress → Function Traces), a per-subcall TurnCost latency and token profiler, pessimistic runtime switches, and an isolated 0.35s DLQ triage pipeline.",
+        impact: "Reduced pipeline incident triage time from hours to seconds; provided real-time sub-second latency and cost breakdown across 11 containerized services.",
+        stack: ["Next.js", "TypeScript", "Python/FastAPI", "PostgreSQL", "Caddy", "Docker", "Tailscale"],
+        demoMedia: "/media/flowmap-telemetry-demo.mp4",
+        demoGif: "/media/flowmap-telemetry-demo.gif",
+        demoPoster: "/media/flow-desktop.png",
+        liveUrl: "https://app.satorie.app",
+        githubUrl: "https://github.com/amannarayanshukla"
+    },
+    {
+        id: 3,
+        title: "Satorie Core: Adaptive Cognitive Engine & Graph Reasoning System",
+        tags: ["KNOWLEDGE-GRAPHS", "PGVECTOR", "FASTAPI", "COGNITIVE-SYSTEMS"],
+        category: "BACKEND",
+        problem: "Standard RAG applications hallucinate pedagogical flow, fail to track concept mastery over time, and introduce advanced concepts out-of-order without prerequisite validation.",
+        solution: "Designed a cognitive modeling runtime combining Bayesian Knowledge Tracing (BKT) and SM-2 Spaced Repetition algorithms. Coupled hybrid vector search (pgvector) with strict topological constraints on a PostgreSQL curriculum graph to guarantee zero prerequisite violations.",
+        impact: "Maintained P95 session latency <800ms; mathematical mastery retention modeling for thousands of concept nodes with zero out-of-order curriculum hallucinations.",
+        stack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Redis", "Celery", "Docker"],
+        demoMedia: null,
+        demoGif: null,
+        demoPoster: "/media/overview-desktop.png",
+        liveUrl: "https://app.satorie.app",
+        githubUrl: "https://github.com/amannarayanshukla"
+    },
+    {
+        id: 4,
+        title: "Affable.ai: Distributed Ingestion & Sharded Search Architecture (1B+ Scale)",
+        tags: ["DISTRIBUTED-SYSTEMS", "ELASTICSEARCH", "REDIS", "HIGH-LOAD"],
+        category: "BACKEND",
+        problem: "Search latency on 2B+ influencer profiles reached 12.8s causing user churn, while legacy scraping workers crashed when scaling past 200M jobs/month.",
+        solution: "Architected 7-node Elasticsearch cluster optimization via custom shard rebalancing, routing keys, and query restructuring. Redesigned distributed scraping pipeline with hierarchical parent/child task queues on Redis and Bull.",
+        impact: "P95 search latency cut by 96% (12.8s → 500ms); scaled ingestion 5x to 1B+ monthly jobs with zero worker starvation and robust rate limiting.",
+        stack: ["Elasticsearch", "Redis", "Node.js", "Python", "Bull Queues", "Docker", "AWS"],
+        demoMedia: null,
+        demoGif: null,
+        demoPoster: null,
+        liveUrl: null,
+        githubUrl: "https://github.com/amannarayanshukla"
+    }
+];
