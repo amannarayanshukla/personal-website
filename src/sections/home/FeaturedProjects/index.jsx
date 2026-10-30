@@ -98,10 +98,17 @@ export const FeaturedProjects = ({ setPage }) => {
                                                 loop
                                                 muted
                                                 playsInline
+                                                controls
+                                                preload="auto"
                                                 poster={project.demoPoster}
                                                 className="w-full h-full object-cover"
-                                                src={project.demoMedia}
-                                            />
+                                                onLoadedData={(e) => {
+                                                    e.target.muted = true;
+                                                    e.target.play().catch(() => {});
+                                                }}
+                                            >
+                                                <source src={project.demoMedia} type="video/mp4" />
+                                            </video>
                                         </div>
                                     ) : project.demoPoster ? (
                                         <div className="relative rounded overflow-hidden bg-zinc-800 aspect-video flex items-center justify-center">

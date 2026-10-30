@@ -112,10 +112,16 @@ export const ProjectsPage = () => {
                                         muted
                                         playsInline
                                         controls
+                                        preload="auto"
                                         poster={project.demoPoster}
                                         className="w-full rounded max-h-[440px] object-contain bg-black"
-                                        src={project.demoMedia}
-                                    />
+                                        onLoadedData={(e) => {
+                                            e.target.muted = true;
+                                            e.target.play().catch(() => {});
+                                        }}
+                                    >
+                                        <source src={project.demoMedia} type="video/mp4" />
+                                    </video>
                                 </div>
                             )}
 
