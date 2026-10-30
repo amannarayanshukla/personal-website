@@ -5,7 +5,6 @@ import { Footer } from '@sections/home/Footer';
 import { Hero } from '@/sections/home/Hero';
 import { Pillars } from '@/sections/home/Pillars';
 import { FeaturedProjects } from '@/sections/home/FeaturedProjects';
-import { LatestWriting } from '@/sections/home/LatestWriting';
 import ResumePage from '@/pages/resume';
 import ProjectsPage from '@/pages/projects';
 import ContactPage from '@/pages/contact';
@@ -45,7 +44,6 @@ export function RootLayout() {
                             </div>
                             <Pillars setPage={setPage} />
                             <FeaturedProjects setPage={setPage} />
-                            <LatestWriting />
                         </>
                     )}
                     {activePage === 'resume' && <ResumePage />}
